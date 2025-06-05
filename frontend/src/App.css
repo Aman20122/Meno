@@ -1,38 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .App {
-    text-align: center;
+  text-align: center;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Custom styles for the authentication page */
+.auth-container {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+/* Loading animation */
+.loading {
+  @apply animate-pulse;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+/* Custom scrollbar for better aesthetics */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.App-link {
-    color: #61dafb;
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Focus states for accessibility */
+input:focus,
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 640px) {
+  .auth-container {
+    padding: 1rem;
+  }
+}
+
+/* Dark theme enhancements */
+.dark-input {
+  background-color: rgba(55, 65, 81, 1);
+  border: 1px solid rgba(75, 85, 99, 1);
+}
+
+.dark-input:focus {
+  border-color: rgba(107, 114, 128, 1);
+  background-color: rgba(55, 65, 81, 1);
+}
+
+/* Button hover effects */
+.btn-primary {
+  @apply bg-white text-black font-medium py-4 px-6 rounded-lg transition-all duration-200;
+}
+
+.btn-primary:hover {
+  @apply bg-gray-100 transform scale-105;
+}
+
+.btn-secondary {
+  @apply bg-gray-800 text-white font-medium py-4 px-6 rounded-lg transition-all duration-200;
+}
+
+.btn-secondary:hover {
+  @apply bg-gray-700 transform scale-105;
+}
+
+/* Social button styles */
+.social-btn {
+  @apply bg-gray-800 text-white py-4 px-6 rounded-lg flex items-center justify-center space-x-2 transition-all duration-200;
+}
+
+.social-btn:hover {
+  @apply bg-gray-700 transform scale-105;
 }
